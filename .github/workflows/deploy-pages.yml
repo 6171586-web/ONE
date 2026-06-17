@@ -3,8 +3,10 @@ name: Build and deploy buyback monitor
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 13 * * 1-5"
-    - cron: "30 0 * * 2-6"
+    - cron: "30,40,50 13 * * 1-5"
+    - cron: "0 14 * * 1-5"
+    - cron: "30,40,50 0 * * 2-6"
+    - cron: "0 1 * * 2-6"
 
 permissions:
   contents: read
