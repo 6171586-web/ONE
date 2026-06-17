@@ -123,32 +123,37 @@ SITE_HTML = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>回购计划监控</title>
+  <title>Divis AI 回购监控</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg: #f7f8fb;
+      --bg: #f4f6f8;
       --panel: #ffffff;
-      --ink: #132033;
-      --muted: #647083;
-      --line: #dbe1ea;
-      --blue: #2563eb;
-      --green: #059669;
-      --red: #dc2626;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d7dde5;
+      --blue: #1d4ed8;
+      --blue-soft: #eaf1ff;
+      --amber: #d97706;
+      --green: #047857;
+      --red: #b91c1c;
+      --shadow: 0 1px 2px rgba(16, 24, 40, .05);
     }
     * { box-sizing: border-box; }
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); }
-    header { padding: 24px 28px 12px; border-bottom: 1px solid var(--line); background: #fff; }
-    h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: 0; }
+    header { padding: 24px 28px 14px; border-bottom: 1px solid var(--line); background: #fbfcfe; }
+    .header-inner { max-width: 1344px; margin: 0 auto; }
+    h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: 0; color: #0f172a; }
     .muted { color: var(--muted); }
     main { padding: 20px 28px 36px; max-width: 1400px; margin: 0 auto; }
     .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-    button { border: 1px solid var(--line); background: #fff; color: var(--ink); padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+    button { border: 1px solid var(--line); background: #fff; color: var(--ink); padding: 8px 12px; border-radius: 6px; cursor: pointer; box-shadow: var(--shadow); }
+    button:hover { border-color: #b8c4d4; background: #f9fbff; }
     button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; box-shadow: var(--shadow); }
     .metric { font-size: 20px; line-height: 1.25; font-weight: 700; margin: 4px 0; overflow-wrap: anywhere; }
-    .label { font-size: 12px; color: var(--muted); }
+    .label { font-size: 12px; color: var(--muted); font-weight: 600; }
     .progress { height: 8px; background: #e8edf5; border-radius: 999px; overflow: hidden; margin-top: 8px; }
     .bar { height: 100%; background: var(--green); width: 0%; }
     .program { margin-bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -159,9 +164,10 @@ SITE_HTML = """<!doctype html>
     .fact strong { display: block; font-size: 13px; margin-bottom: 2px; }
     .notes { margin-top: 14px; }
     .charts { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
-    table { border-collapse: collapse; width: 100%; background: #fff; margin-top: 14px; border: 1px solid var(--line); }
+    table { border-collapse: collapse; width: 100%; background: #fff; margin-top: 14px; border: 1px solid var(--line); box-shadow: var(--shadow); }
     th, td { border-bottom: 1px solid var(--line); padding: 9px; text-align: left; font-size: 13px; vertical-align: top; }
-    th { color: var(--muted); background: #f2f5f9; font-weight: 600; }
+    th { color: #475467; background: #eef3f8; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fafcff; }
     .warn { color: var(--red); }
     .hidden { display: none; }
     a { color: var(--blue); text-decoration: none; }
@@ -170,8 +176,10 @@ SITE_HTML = """<!doctype html>
 </head>
 <body>
   <header>
-    <h1>回购计划监控</h1>
-    <div class="muted" id="generated">加载中</div>
+    <div class="header-inner">
+      <h1>Divis AI 回购监控</h1>
+      <div class="muted" id="generated">加载中</div>
+    </div>
   </header>
   <main>
     <div class="toolbar" id="companyTabs"></div>
@@ -344,10 +352,10 @@ SITE_HTML = """<!doctype html>
       amountChart = new Chart(document.getElementById('amountChart'), {
         type: 'bar',
         data: { labels, datasets: [
-          { label: '港股每日回购金额 HKD', data: hkDaily, borderColor: '#2563eb', backgroundColor: '#2563eb', yAxisID: 'yHkd' },
-          { label: '美股每日回购金额 折HKD', data: usDailyHkd, borderColor: '#f59e0b', backgroundColor: '#f59e0b', yAxisID: 'yHkd' },
-          { type: 'line', label: '港股当日平均回购价 HKD/股', data: hkAvgPrice, borderColor: '#2563eb', backgroundColor: '#2563eb', pointRadius: 3, tension: .25, spanGaps: false, yAxisID: 'yPrice' },
-          { type: 'line', label: '美股当日平均回购价 USD/ADS', data: usAvgPriceAds, borderColor: '#f59e0b', backgroundColor: '#f59e0b', pointRadius: 3, tension: .25, spanGaps: false, yAxisID: 'yPrice' }
+          { label: '港股每日回购金额 HKD', data: hkDaily, borderColor: '#1d4ed8', backgroundColor: '#1d4ed8', yAxisID: 'yHkd' },
+          { label: '美股每日回购金额 折HKD', data: usDailyHkd, borderColor: '#d97706', backgroundColor: '#d97706', yAxisID: 'yHkd' },
+          { type: 'line', label: '港股当日平均回购价 HKD/股', data: hkAvgPrice, borderColor: '#1d4ed8', backgroundColor: '#1d4ed8', pointRadius: 3, tension: .25, spanGaps: false, yAxisID: 'yPrice' },
+          { type: 'line', label: '美股当日平均回购价 USD/ADS', data: usAvgPriceAds, borderColor: '#d97706', backgroundColor: '#d97706', pointRadius: 3, tension: .25, spanGaps: false, yAxisID: 'yPrice' }
         ]},
         options: {
           responsive: true,
@@ -391,7 +399,8 @@ SITE_HTML = """<!doctype html>
       renderCharts(c);
       renderRows(c);
     }
-    fetch('data/dashboard.json').then(r => r.json()).then(data => {
+    const dataUrl = `data/dashboard.json?v=${Date.now()}`;
+    fetch(dataUrl, { cache: 'no-store' }).then(r => r.json()).then(data => {
       dashboard = data;
       current = 0;
       document.getElementById('generated').textContent = `生成时间：${data.generated_at}`;
