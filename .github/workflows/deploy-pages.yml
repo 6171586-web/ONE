@@ -42,7 +42,7 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: Run monitor
-        run: python -m buyback_monitor run --mode scheduled --update-mode incremental
+        run: python -m buyback_monitor run --mode manual --update-mode incremental
         env:
           WECHAT_ENABLE_PUBLISH: "0"
 
