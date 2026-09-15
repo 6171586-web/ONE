@@ -30,6 +30,7 @@ def write_site() -> Path:
     SITE_DIR.mkdir(parents=True, exist_ok=True)
     path = SITE_DIR / "index.html"
     path.write_text(SITE_HTML, encoding="utf-8")
+    (SITE_DIR / "mobile.css").write_text(Path(__file__).with_name("mobile.css").read_text(encoding="utf-8"), encoding="utf-8")
     return path
 
 
@@ -124,6 +125,7 @@ SITE_HTML = """<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Divis AI 回购监控</title>
+  <link rel="stylesheet" href="./mobile.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     :root {
@@ -191,14 +193,17 @@ SITE_HTML = """<!doctype html>
         <div class="muted" style="margin-top:8px">柱状图为每日回购金额，美股金额按当日运行汇率折算为 HKD 便于同轴比较；折线为当日平均回购价，港股为 HKD/股，美股为 USD/ADS。</div>
       </div>
     </section>
-    <section class="notes" id="marketNotes"></section>
-    <table>
+    <a class="mobile-jump" href="#valuation-details">查看回购明细 · 最近优先 ↓</a>
+    <table id="valuation-details">
+      <caption class="mobile-detail-hint">默认显示最近 7 条回购记录</caption>
       <thead>
         <tr><th rowspan="2">日期</th><th colspan="4">美股 / Nasdaq</th><th colspan="4">港股 / HKEX</th></tr>
         <tr><th>金额</th><th>ADS数</th><th>每ADS均价</th><th>回购/成交额</th><th>金额</th><th>股数</th><th>每股均价</th><th>回购/成交额</th></tr>
       </thead>
       <tbody id="detailRows"></tbody>
     </table>
+    <button class="history-toggle" aria-expanded="false" aria-controls="detailRows" onclick="const expanded=this.getAttribute('aria-expanded')!=='true';this.setAttribute('aria-expanded',expanded);document.getElementById('detailRows').classList.toggle('history-expanded',expanded);this.textContent=expanded?'收起历史 · 只看最近 7 条':'展开全部历史明细';if(!expanded)document.getElementById('valuation-details').scrollIntoView({block:'start'})">展开全部历史明细</button>
+    <section class="notes" id="marketNotes"></section>
   </main>
   <script>
     let dashboard, current, amountChart;
@@ -359,6 +364,7 @@ SITE_HTML = """<!doctype html>
         ]},
         options: {
           responsive: true,
+          aspectRatio: window.innerWidth < 600 ? 1 : 2,
           plugins: { legend: { position: 'bottom' }, title: { display: true, text: '每日回购金额与当日平均回购价' } },
           scales: {
             yHkd: { type: 'linear', position: 'left', title: { display: true, text: '回购金额 HKD' } },
