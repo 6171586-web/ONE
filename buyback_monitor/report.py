@@ -354,13 +354,38 @@ SITE_HTML = """<!doctype html>
       const hkAvgPrice = labels.map(date => hkByDate[date] ? Number(hkByDate[date].daily_average_price_hkd || 0) : null);
       const usAvgPriceAds = labels.map(date => usByDate[date] ? Number(usByDate[date].average_price_ads || 0) : null);
       if (amountChart) amountChart.destroy();
+      const priceKeys = (values) => {
+        const valid = values.map((v,i)=>({v,i})).filter(p=>p.v!==null);
+        if (!valid.length) return new Set();
+        const peak = valid.reduce((a,b)=>b.v>a.v?b:a);
+        const latest = valid[valid.length-1];
+        const keys = new Set([peak.i,latest.i]);
+        const first = valid[0];
+        const middle = valid.filter(p=>[...keys].every(k=>Math.abs(k-p.i)>=Math.max(2,values.length*.2)))
+          .sort((a,b)=>Math.abs(b.v-(first.v+(latest.v-first.v)*(b.i-first.i)/Math.max(1,latest.i-first.i)))-Math.abs(a.v-(first.v+(latest.v-first.v)*(a.i-first.i)/Math.max(1,latest.i-first.i))));
+        if(middle.length) keys.add(middle[0].i);
+        return keys;
+      };
+      const selectedPrices = [priceKeys(hkAvgPrice),priceKeys(usAvgPriceAds)];
+      const mobilePriceRadius = ctx => window.innerWidth<=600 ? (selectedPrices[ctx.datasetIndex-2].has(ctx.dataIndex)?3:0) : 3;
       amountChart = new Chart(document.getElementById('amountChart'), {
+        plugins: [{id:'mobilePriceLabels',afterDatasetsDraw(chart){
+          if(window.innerWidth>600) return;
+          const ctx=chart.ctx;
+          ctx.save();ctx.font='10px Arial';
+          [2,3].forEach((di)=>{const ds=chart.data.datasets[di];const meta=chart.getDatasetMeta(di);
+            selectedPrices[di-2].forEach(i=>{const p=meta.data[i];if(!p||p.skip)return;
+              ctx.fillStyle=ds.borderColor;ctx.textAlign='right';
+              ctx.fillText(Number(ds.data[i]).toFixed(2),Math.max(chart.chartArea.left+36,Math.min(chart.chartArea.right,p.x)),Math.max(chart.chartArea.top+12,p.y+(di===2?-10:18)));
+            });
+          });ctx.restore();
+        }}],
         type: 'bar',
         data: { labels, datasets: [
           { label: '港股每日回购金额 HKD', data: hkDaily, borderColor: '#1d4ed8', backgroundColor: '#1d4ed8', yAxisID: 'yHkd' },
           { label: '美股每日回购金额 折HKD', data: usDailyHkd, borderColor: '#d97706', backgroundColor: '#d97706', yAxisID: 'yHkd' },
-          { type: 'line', label: '港股当日平均回购价 HKD/股', data: hkAvgPrice, borderColor: '#1d4ed8', backgroundColor: '#1d4ed8', pointRadius: 3, tension: .25, spanGaps: false, yAxisID: 'yPrice' },
-          { type: 'line', label: '美股当日平均回购价 USD/ADS', data: usAvgPriceAds, borderColor: '#d97706', backgroundColor: '#d97706', pointRadius: 3, tension: .25, spanGaps: false, yAxisID: 'yPrice' }
+          { type: 'line', label: '港股当日平均回购价 HKD/股', data: hkAvgPrice, borderColor: '#1d4ed8', backgroundColor: '#1d4ed8', pointRadius: mobilePriceRadius, tension: .25, spanGaps: false, yAxisID: 'yPrice' },
+          { type: 'line', label: '美股当日平均回购价 USD/ADS', data: usAvgPriceAds, borderColor: '#d97706', backgroundColor: '#d97706', pointRadius: mobilePriceRadius, tension: .25, spanGaps: false, yAxisID: 'yPrice' }
         ]},
         options: {
           responsive: true,
