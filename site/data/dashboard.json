@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T08:50:18+08:00",
+  "generated_at": "2026-09-17T21:30:15+08:00",
   "fx": {
     "hkd_per_usd": "7.8",
     "source": "fallback 7.8",
@@ -57,29 +57,29 @@
         }
       },
       "summary": {
-        "trade_date": "2026-09-16",
-        "buyback_amount": "100448848.5",
-        "buyback_shares": "231000",
+        "trade_date": "2026-09-17",
+        "buyback_amount": "100276027.5",
+        "buyback_shares": "235000",
         "buyback_currency": "HKD",
-        "daily_average_price_hkd": "434.8435",
-        "cumulative_amount_hkd": "20279428703.49",
-        "cumulative_shares": "45776700",
-        "average_price_hkd": "443.0076589944229269475519205",
-        "progress_ratio": "0.05017249672133677207111412576",
+        "daily_average_price_hkd": "426.7065",
+        "cumulative_amount_hkd": "20379704730.99",
+        "cumulative_shares": "46011700",
+        "average_price_hkd": "442.9244025104484294212124308",
+        "progress_ratio": "0.05043006305376165506697690791",
         "turnover_hkd": null,
         "buyback_turnover_ratio": null,
         "anomaly_note": "",
-        "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0916/2026091600813.pdf"
+        "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0917/2026091701047.pdf"
       },
       "combined_summary": {
-        "hkd_amount_usd": "2599926756.857692307692307692",
+        "hkd_amount_usd": "2612782657.819230769230769231",
         "us_amount_usd": null,
-        "total_amount_usd": "2599926756.857692307692307692",
+        "total_amount_usd": "2612782657.819230769230769231",
         "progress_ratio": null,
-        "hk_share_ratio": "0.005017249672133677207111412576",
+        "hk_share_ratio": "0.005043006305376165506697690791",
         "us_share_ratio": null,
-        "combined_share_ratio": "0.005017249672133677207111412576",
-        "combined_shares": "45776700",
+        "combined_share_ratio": "0.005043006305376165506697690791",
+        "combined_shares": "46011700",
         "share_base": "9123863270",
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
@@ -1283,7 +1283,7 @@
           "progress_ratio": "0.04814265481643939629095296602",
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "行情抓取失败：HTTP Error 403: Forbidden",
+          "anomaly_note": "行情抓取失败：HTTP Error 429: Too Many Requests",
           "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0904/2026090401402.pdf"
         },
         {
@@ -1405,6 +1405,21 @@
           "buyback_turnover_ratio": null,
           "anomaly_note": "",
           "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0916/2026091600813.pdf"
+        },
+        {
+          "trade_date": "2026-09-17",
+          "buyback_amount": "100276027.5",
+          "buyback_shares": "235000",
+          "buyback_currency": "HKD",
+          "daily_average_price_hkd": "426.7065",
+          "cumulative_amount_hkd": "20379704730.99",
+          "cumulative_shares": "46011700",
+          "average_price_hkd": "442.9244025104484294212124308",
+          "progress_ratio": "0.05043006305376165506697690791",
+          "turnover_hkd": null,
+          "buyback_turnover_ratio": null,
+          "anomaly_note": "",
+          "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0917/2026091701047.pdf"
         }
       ],
       "us_metrics": []
@@ -2636,7 +2651,7 @@
           "as_of": "2026-05-26",
           "official_all_market_amount": "139700000",
           "official_all_market_currency": "USD",
-          "hk_increment_after_snapshot_hkd": "2454268672.73",
+          "hk_increment_after_snapshot_hkd": "2532328465.23",
           "note": "为避免重复计算，合计采用官方全市场累计快照加快照日之后的 HKEX 港股增量；不把快照日前 HKEX 日回购再次相加。"
         },
         "reconciliation": {
@@ -2654,29 +2669,29 @@
         }
       },
       "summary": {
-        "trade_date": "2026-09-16",
-        "buyback_amount": "34702807.94",
-        "buyback_shares": "741700",
+        "trade_date": "2026-09-17",
+        "buyback_amount": "78059792.5",
+        "buyback_shares": "1692500",
         "buyback_currency": "HKD",
-        "daily_average_price_hkd": "46.7882",
-        "cumulative_amount_hkd": "2656169834.40",
-        "cumulative_shares": "50939600",
-        "average_price_hkd": "52.14351574020997416548225742",
+        "daily_average_price_hkd": "46.121",
+        "cumulative_amount_hkd": "2734229626.90",
+        "cumulative_shares": "52632100",
+        "average_price_hkd": "51.94984860759878477203075690",
         "progress_ratio": null,
         "turnover_hkd": null,
         "buyback_turnover_ratio": null,
         "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。",
-        "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0916/2026091600969.pdf"
+        "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0917/2026091701257.pdf"
       },
       "combined_summary": {
-        "hkd_amount_usd": "340534594.1538461538461538462",
+        "hkd_amount_usd": "350542259.8589743589743589744",
         "us_amount_usd": "332959777.49",
-        "total_amount_usd": "673494371.6438461538461538462",
-        "progress_ratio": "0.6734943716438461538461538462",
-        "hk_share_ratio": "0.02377240022635012146513206451",
+        "total_amount_usd": "683502037.3489743589743589744",
+        "progress_ratio": "0.6835020373489743589743589744",
+        "hk_share_ratio": "0.02456225305957020133579724483",
         "us_share_ratio": "0.02216560482445190606865702300",
-        "combined_share_ratio": "0.04593800505080202753378908752",
-        "combined_shares": "98436152",
+        "combined_share_ratio": "0.04672785788402210740445426783",
+        "combined_shares": "100128652",
         "share_base": "2142804240",
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
@@ -4360,7 +4375,7 @@
           "progress_ratio": null,
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。；行情抓取失败：HTTP Error 403: Forbidden",
+          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。；行情抓取失败：HTTP Error 429: Too Many Requests",
           "source_url": null
         },
         {
@@ -4482,6 +4497,21 @@
           "buyback_turnover_ratio": null,
           "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。",
           "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0916/2026091600969.pdf"
+        },
+        {
+          "trade_date": "2026-09-17",
+          "buyback_amount": "78059792.5",
+          "buyback_shares": "1692500",
+          "buyback_currency": "HKD",
+          "daily_average_price_hkd": "46.121",
+          "cumulative_amount_hkd": "2734229626.90",
+          "cumulative_shares": "52632100",
+          "average_price_hkd": "51.94984860759878477203075690",
+          "progress_ratio": null,
+          "turnover_hkd": null,
+          "buyback_turnover_ratio": null,
+          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。",
+          "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0917/2026091701257.pdf"
         }
       ],
       "us_metrics": [
