@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-18T21:50:16+08:00",
+  "generated_at": "2026-09-19T08:30:18+08:00",
   "fx": {
     "hkd_per_usd": "7.8",
     "source": "fallback 7.8",
-    "note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
+    "note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
   },
   "companies": [
     {
@@ -83,7 +83,7 @@
         "share_base": "9123863270",
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
-        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
+        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
       },
       "metrics": [
         {
@@ -1283,7 +1283,7 @@
           "progress_ratio": "0.04814265481643939629095296602",
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "行情抓取失败：HTTP Error 429: Too Many Requests",
+          "anomaly_note": "行情抓取失败：HTTP Error 403: Forbidden",
           "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0904/2026090401402.pdf"
         },
         {
@@ -1516,7 +1516,7 @@
         "share_base": null,
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
-        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
+        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
       },
       "metrics": [
         {
@@ -2521,7 +2521,7 @@
           "progress_ratio": "0.137206588143",
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "行情抓取失败：HTTP Error 429: Too Many Requests",
+          "anomaly_note": "行情抓取失败：HTTP Error 403: Forbidden",
           "source_url": null
         },
         {
@@ -2710,7 +2710,7 @@
         "share_base": "2142804240",
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
-        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
+        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
       },
       "metrics": [
         {
@@ -4390,7 +4390,7 @@
           "progress_ratio": null,
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。；行情抓取失败：HTTP Error 429: Too Many Requests",
+          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。；行情抓取失败：HTTP Error 403: Forbidden",
           "source_url": null
         },
         {
