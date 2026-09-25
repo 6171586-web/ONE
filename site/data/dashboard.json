@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-25T21:30:26+08:00",
+  "generated_at": "2026-09-25T21:40:23+08:00",
   "fx": {
     "hkd_per_usd": "7.8",
     "source": "fallback 7.8",
-    "note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
+    "note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
   },
   "companies": [
     {
@@ -83,7 +83,7 @@
         "share_base": "9123863270",
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
-        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
+        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
       },
       "metrics": [
         {
@@ -1283,7 +1283,7 @@
           "progress_ratio": "0.04814265481643939629095296602",
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "行情抓取失败：HTTP Error 403: Forbidden",
+          "anomaly_note": "行情抓取失败：HTTP Error 429: Too Many Requests",
           "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0904/2026090401402.pdf"
         },
         {
@@ -1591,7 +1591,7 @@
         "share_base": null,
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
-        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
+        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
       },
       "metrics": [
         {
@@ -2596,7 +2596,7 @@
           "progress_ratio": "0.137206588143",
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "行情抓取失败：HTTP Error 403: Forbidden",
+          "anomaly_note": "行情抓取失败：HTTP Error 429: Too Many Requests",
           "source_url": null
         },
         {
@@ -2830,7 +2830,7 @@
         "share_base": "2142804240",
         "hkd_per_usd": "7.8",
         "fx_source": "fallback 7.8",
-        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 403: Forbidden"
+        "fx_note": "汇率抓取失败，暂用 7.8：HTTP Error 429: Too Many Requests"
       },
       "metrics": [
         {
