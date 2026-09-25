@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T21:40:23+08:00",
+  "generated_at": "2026-09-25T21:50:23+08:00",
   "fx": {
     "hkd_per_usd": "7.8",
     "source": "fallback 7.8",
@@ -4510,7 +4510,7 @@
           "progress_ratio": null,
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。；行情抓取失败：HTTP Error 403: Forbidden",
+          "anomaly_note": "计划上限币种为 USD，当前累计金额为 HKD，进度待接入汇率后换算。；行情抓取失败：HTTP Error 429: Too Many Requests",
           "source_url": null
         },
         {
