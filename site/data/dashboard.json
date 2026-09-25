@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T08:30:18+08:00",
+  "generated_at": "2026-09-25T08:40:15+08:00",
   "fx": {
     "hkd_per_usd": "7.8",
     "source": "fallback 7.8",
@@ -1283,7 +1283,7 @@
           "progress_ratio": "0.04814265481643939629095296602",
           "turnover_hkd": null,
           "buyback_turnover_ratio": null,
-          "anomaly_note": "行情抓取失败：HTTP Error 429: Too Many Requests",
+          "anomaly_note": "行情抓取失败：HTTP Error 403: Forbidden",
           "source_url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0904/2026090401402.pdf"
         },
         {
